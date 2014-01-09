@@ -7,7 +7,8 @@
             var defaults = {
                 top: 100,
                 overlay: 0.5,
-                closeButton: null
+                closeButton: null,
+                clickOutToClose: true
             }
             
             var overlay = $("<div id='lean_overlay'></div>");
@@ -24,9 +25,11 @@
               
               	var modal_id = $(this).attr("href");
 
-				$("#lean_overlay").click(function() { 
-                     close_modal(modal_id);                    
-                });
+		if (o.clickOutToClose) {
+			$("#lean_overlay").click(function() { 
+	                     close_modal(modal_id);                    
+	                });
+		}
                 
                 $(o.closeButton).click(function() { 
                      close_modal(modal_id);                    
